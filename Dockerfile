@@ -25,14 +25,3 @@ RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/
 WORKDIR /var/www
 
 EXPOSE 4000
-
-#ENTRYPOINT ["/bin/bash"]
-
-
-
-#RUN apk --update add \
-
-#  ruby \
-#  ruby-bundler \
-  # Clean APK cache
-#&& rm -rf /var/cache/apk/*
