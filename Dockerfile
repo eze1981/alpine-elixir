@@ -22,6 +22,11 @@ RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/
 #WORKDIR /bin
 #RUN wget http://s3.amazonaws.com/rebar3/rebar3 && chmod u+x rebar3
 
-WORKDIR /var/www
+WORKDIR /var/www/app
 
-EXPOSE 4000
+VOLUME ["/var/www/app"]
+
+
+ENV PORT 8000
+EXPOSE 8000
+CMD ["mix","phoenix.server"]
