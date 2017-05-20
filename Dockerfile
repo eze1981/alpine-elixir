@@ -5,15 +5,15 @@ ENV ELIXIR_VERSION 1.4.4
 ENV PHOENIX_VERSION 1.2.4
 ENV DB_HOST localhost
 
-# erlang
-RUN apk --update add erlang \
+# nodejs and erlang
+RUN apk --update add nodejs \
+  erlang \
   erlang-inets \
   erlang-crypto \
   erlang-ssl \
   erlang-public-key \
   erlang-asn1 \
-  erlang-sasl \
-  && rm -rf /var/cache/apk/*
+  erlang-sasl
 
 # elixir
 RUN apk --update add --virtual build-dependencies \
@@ -24,8 +24,7 @@ RUN apk --update add --virtual build-dependencies \
     && unzip Precompiled.zip -d /opt/elixir-${ELIXIR_VERSION}/ \
     && rm Precompiled.zip \
     && apk del build-dependencies \
-    && rm -rf /etc/ssl \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /etc/ssl
 
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
