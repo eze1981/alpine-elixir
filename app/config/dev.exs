@@ -39,5 +39,5 @@ config :app, App.Repo,
   username: "postgres",
   password: "postgres",
   database: "app_dev",
-  hostname: "localhost",
+  hostname: System.get_env("DB_HOST") || "${DB_HOST}",
   pool_size: 10

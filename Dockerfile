@@ -3,6 +3,7 @@ MAINTAINER Ezequiel M Gioia <@eze1981>
 
 ENV ELIXIR_VERSION 1.4.4
 ENV PHOENIX_VERSION 1.2.4
+ENV DB_HOST localhost
 
 # erlang
 RUN apk --update add erlang \
@@ -29,7 +30,8 @@ RUN apk --update add --virtual build-dependencies \
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
 # DEV dependencies
-RUN apk --update add erlang-syntax-tools \
+RUN apk --update add bash \
+  erlang-syntax-tools \
   erlang-parsetools \
   erlang-eunit \
   erlang-erl-interface \
@@ -53,5 +55,8 @@ RUN mix local.hex --force \
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY ./app .
+RUN mix deps.get
+RUN mix compile
+#RUN mix ecto.migrate
 
 CMD ["mix","phoenix.server"]
