@@ -3,7 +3,6 @@ MAINTAINER Ezequiel M Gioia <@eze1981>
 
 ENV ELIXIR_VERSION 1.4.4
 ENV PHOENIX_VERSION 1.2.4
-ENV DB_HOST localhost
 
 # nodejs and erlang
 RUN apk --update add nodejs \
@@ -53,9 +52,9 @@ RUN mix local.hex --force \
 #VOLUME ["/var/www/app"]
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY ./app .
-RUN mix deps.get
-RUN mix compile
+#COPY ./app .
+#RUN mix deps.get
+#RUN mix compile
 #RUN mix ecto.migrate
 
-CMD ["mix","phoenix.server"]
+CMD ["bash"]
