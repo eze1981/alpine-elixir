@@ -2,7 +2,6 @@ FROM alpine:3.5
 MAINTAINER Ezequiel M Gioia <@eze1981>
 
 ENV ELIXIR_VERSION 1.4.4
-ENV PHOENIX_VERSION 1.2.4
 
 # nodejs and erlang
 RUN apk --update add nodejs \
@@ -37,24 +36,11 @@ RUN apk --update add bash \
   git \
   && rm -rf /var/cache/apk/*
   
-# phoenix
+# install hex and rebar
 RUN mix local.hex --force \ 
-  # && mix hex.info \
-  && mix local.rebar --force \
-  #&& mix archive.install https://github.com/phoenixframework/archives/blob/master/phoenix_new-1.2.4.ez --force
-  #&& mix archive.install https://github.com/phoenixframework/archives/blob/master/phoenix_new-${PHOENIX_VERSION}.ez --force
-  && mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
-  
-#ENV PORT 8000
-#EXPOSE 8000
+  && mix local.rebar --force
 
-# Create working directory and deploy app
-#VOLUME ["/var/www/app"]
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-#COPY ./app .
-#RUN mix deps.get
-#RUN mix compile
-#RUN mix ecto.migrate
 
 CMD ["bash"]
