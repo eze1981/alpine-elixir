@@ -26,7 +26,7 @@ RUN apk --update add --virtual build-dependencies \
 
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
-# DEV dependencies
+# dev dependencies
 RUN apk --update add bash \
   erlang-syntax-tools \
   erlang-parsetools \
