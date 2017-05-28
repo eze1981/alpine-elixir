@@ -19,7 +19,7 @@ RUN apk --update add --virtual build-dependencies \
     wget \
     && wget --no-check-certificate https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip \
     && mkdir -p /opt/elixir-${ELIXIR_VERSION}/ \
-    && unzip Precompiled.zip -d /opt/elixir-${ELIXIR_VERSION}/ 
+    && unzip Precompiled.zip -d /opt/elixir-${ELIXIR_VERSION}/ \
     && rm Precompiled.zip \
     && apk del build-dependencies
     #&& rm -rf /etc/ssl
