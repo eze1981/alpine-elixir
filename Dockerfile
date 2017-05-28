@@ -5,6 +5,7 @@ ENV ELIXIR_VERSION 1.4.4
 
 # nodejs and erlang
 RUN apk --update add nodejs \
+  nodejs-npm \
   erlang \
   erlang-inets \
   erlang-crypto \
