@@ -21,9 +21,9 @@ RUN apk --update add --virtual build-dependencies \
     && wget --no-check-certificate https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip \
     && mkdir -p /opt/elixir-${ELIXIR_VERSION}/ \
     && unzip Precompiled.zip -d /opt/elixir-${ELIXIR_VERSION}/ \
-    && rm Precompiled.zip \
-    && apk del build-dependencies \
-    && rm -rf /etc/ssl
+    && rm Precompiled.zip 
+    #&& apk del build-dependencies \
+    #&& rm -rf /etc/ssl
 
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
@@ -33,9 +33,9 @@ RUN apk --update add bash \
   erlang-parsetools \
   erlang-eunit \
   erlang-erl-interface \
-  erlang-dev \
-  git \
-  && rm -rf /var/cache/apk/*
+  erlang-dev 
+  #git \
+  #&& rm -rf /var/cache/apk/*
   
 # install hex and rebar
 RUN mix local.hex --force \ 
