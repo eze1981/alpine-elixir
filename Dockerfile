@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 MAINTAINER Ezequiel M Gioia <@eze1981>
 
 ENV ELIXIR_VERSION 1.4.4
