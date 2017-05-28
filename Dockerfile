@@ -33,7 +33,8 @@ RUN apk --update add bash \
   erlang-parsetools \
   erlang-eunit \
   erlang-erl-interface \
-  erlang-dev 
+  erlang-dev \
+  ca-certificates
   #git \
  # && rm -rf /var/cache/apk/*
   
