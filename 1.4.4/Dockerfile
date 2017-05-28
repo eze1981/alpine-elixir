@@ -4,8 +4,7 @@ MAINTAINER Ezequiel M Gioia <@eze1981>
 ENV ELIXIR_VERSION 1.4.4
 
 # nodejs and erlang
-RUN apk --update add 
-  erlang \
+RUN apk --update add erlang \
   erlang-inets \
   erlang-crypto \
   erlang-ssl \
