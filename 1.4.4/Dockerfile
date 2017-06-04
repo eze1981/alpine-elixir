@@ -12,7 +12,8 @@ RUN apk --update add erlang \
   erlang-asn1 \
   erlang-sasl \
   ca-certificates \
-  bash
+  bash \
+  make
 
 # elixir
 RUN apk --update add --virtual build-dependencies \
