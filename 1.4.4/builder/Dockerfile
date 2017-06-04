@@ -34,7 +34,7 @@ RUN apk --update add bash \
   erlang-eunit \
   erlang-erl-interface \
   erlang-dev \
-  build-base \
+  #build-base \
   make
   #git \
  # && rm -rf /var/cache/apk/*
