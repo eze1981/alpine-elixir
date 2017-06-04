@@ -7,6 +7,7 @@ ENV ELIXIR_VERSION 1.4.4
 RUN apk --update add nodejs \
   nodejs-npm \
   erlang \
+  erlang-dev \
   erlang-inets \
   erlang-crypto \
   erlang-ssl \
@@ -34,7 +35,7 @@ RUN apk --update add bash \
   erlang-eunit \
   erlang-erl-interface \
   erlang-dev \
-  #build-base \
+  build-base \
   make
   #git \
  # && rm -rf /var/cache/apk/*
